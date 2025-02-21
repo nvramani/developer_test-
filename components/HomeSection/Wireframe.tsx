@@ -1,7 +1,7 @@
 "use client";
 import { WIREFRAME_DATA } from "@/utils/constant";
-import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useState } from "react";
 
 const Wireframe: React.FC = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -16,13 +16,8 @@ const Wireframe: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        // Scrolling Down → Shrink slightly
         controls.start({ scale: 0.98, opacity: 0.9 });
-      } 
-      // else {
-      //   // Scrolling Up → Expand and be more visible
-      //   controls.start({ scale: 1, opacity: 1 });
-      // }
+      }
       setLastScrollY(window.scrollY);
     };
 
@@ -90,7 +85,7 @@ const Wireframe: React.FC = () => {
         </p>
 
         <motion.button
-          className="mt-5 px-6 py-3 bg-blue-500 text-white rounded-md shadow-md hover:bg-blue-600 transition uppercase"
+          className="mt-5 px-6 py-3 bg-blue-600 text-white rounded-md shadow-md hover:bg-blue-600 transition uppercase"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}

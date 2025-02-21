@@ -19,15 +19,6 @@ const HorizontalCards: React.FC = () => {
           transition: { duration: 0.3, ease: "easeOut" },
         });
       }
-      //  else {
-      //   // Scrolling Up
-      //   controls.start({
-      //     y: 20,
-      //     opacity: 1,
-      //     transition: { duration: 0.3, ease: "easeOut" },
-      //   });
-      // }
-
       lastScrollY = currentScrollY;
     };
 
@@ -45,13 +36,13 @@ const HorizontalCards: React.FC = () => {
           {HORIZONTAL_CARDS_DATA.map((item, index, arr) => (
             <motion.div
               key={item.id}
-              className="flex flex-col md:flex-row items-center h-full relative"
+              className="w-full md:w-1/4 flex flex-col md:flex-row items-center relative"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              <div className="w-64 p-4 flex-shrink-0 text-center md:text-left">
+              <div className="p-4 text-center md:text-left">
                 <motion.h3
                   className="text-lg font-bold text-blue-600"
                   initial={{ opacity: 0, y: 10 }}
@@ -72,19 +63,19 @@ const HorizontalCards: React.FC = () => {
 
               {index < arr.length - 1 && (
                 <motion.div
-                  className="relative flex justify-center items-center md:mx-4 sm:my-4"
+                  className="relative flex justify-center items-center w-2/5 md:mx-4 sm:my-4"
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                   viewport={{ once: true }}
                 >
                   <div className="hidden md:block relative w-1 h-20">
-                    <div className="absolute left-1/2 top-0 h-full w-0.5 bg-blue-500"></div>
+                    <div className="absolute left-1/2 top-0 h-full w-0.5 bg-blue-600"></div>
                     <div className="absolute left-1/2 top-1/2 h-6 w-0.5 bg-black"></div>
                   </div>
 
-                  <div className="block md:hidden relative w-20 h-1">
-                    <div className="absolute top-1/2 left-0 w-full h-0.5 bg-blue-500"></div>
+                  <div className="block md:hidden relative w-full h-1">
+                    <div className="absolute top-1/2 left-0 w-full h-0.5 bg-blue-600"></div>
                     <div className="absolute top-1/2 left-1/2 w-6 h-0.5 bg-black"></div>
                   </div>
                 </motion.div>

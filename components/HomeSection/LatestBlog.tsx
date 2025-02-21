@@ -1,7 +1,7 @@
 "use client";
 import { BLOG_DATA } from "@/utils/constant";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, useAnimation } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const LatestBlog: React.FC = () => {
@@ -29,15 +29,7 @@ const LatestBlog: React.FC = () => {
           opacity: 1,
           transition: { duration: 0.3, ease: "easeOut" },
         });
-      } 
-      // else {
-      //   // Scrolling Up
-      //   controls.start({
-      //     y: 20,
-      //     opacity: 1,
-      //     transition: { duration: 0.3, ease: "easeOut" },
-      //   });
-      // }
+      }
 
       lastScrollY = currentScrollY;
     };
@@ -49,30 +41,26 @@ const LatestBlog: React.FC = () => {
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
       setCurrentPage((prev) => prev + 1);
-      controls
-        .start({ opacity: 0, y: 50 })
-        .then(() =>
-          controls.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5, ease: "easeOut" },
-          })
-        );
+      controls.start({ opacity: 0, y: 50 }).then(() =>
+        controls.start({
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: "easeOut" },
+        })
+      );
     }
   };
 
   const prevPage = () => {
     if (currentPage > 0) {
       setCurrentPage((prev) => prev - 1);
-      controls
-        .start({ opacity: 0, y: -50 })
-        .then(() =>
-          controls.start({
-            opacity: 1,
-            y: 0,
-            transition: { duration: 0.5, ease: "easeOut" },
-          })
-        );
+      controls.start({ opacity: 0, y: -50 }).then(() =>
+        controls.start({
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.5, ease: "easeOut" },
+        })
+      );
     }
   };
 

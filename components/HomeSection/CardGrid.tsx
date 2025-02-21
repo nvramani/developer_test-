@@ -17,13 +17,8 @@ const CardGrid: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        // Scroll Down: Shrink and fade slightly
         controls.start({ scale: 0.98, opacity: 0.9 });
       }
-      //  else {
-      //   // Scroll Up: Expand and restore opacity
-      //   controls.start({ scale: 1, opacity: 1 });
-      // }
       setLastScrollY(window.scrollY);
     };
 

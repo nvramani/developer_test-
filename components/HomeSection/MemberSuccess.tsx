@@ -23,10 +23,6 @@ const MemberSuccess = () => {
         // Scrolling Down
         controls.start({ opacity: 0, y: 50, transition: { duration: 0.4 } });
       }
-      // else {
-      //   // Scrolling Up
-      //   controls.start({ opacity: 1, y: -50, transition: { duration: 0.4 } });
-      // }
       setLastScrollY(scrollY);
     };
 
@@ -111,7 +107,7 @@ const MemberSuccess = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="flex items-center justify-center space-x-4">
+            <div className="flex items-center justify-start space-x-4">
               <img
                 src={story.imageUrl}
                 alt={story.name}

@@ -1,7 +1,6 @@
 "use client";
 import Footer from "@/components/Footer";
-// import Header from "@/components/Header";
-import HeaderN from "@/components/Header/HeaderN";
+import Header from "@/components/Header";
 import HomeSection from "@/components/HomeSection";
 import CardGrid from "@/components/HomeSection/CardGrid";
 import HorizontalCards from "@/components/HomeSection/HorizontalCards";
@@ -12,8 +11,7 @@ import Wireframe from "@/components/HomeSection/Wireframe";
 export default function Home() {
   return (
     <>
-      {/* <Header /> */}
-      <HeaderN />
+      <Header />
       <HomeSection />
       <CardGrid />
       <Wireframe />

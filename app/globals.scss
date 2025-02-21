@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+$header-font-size: 17px;
+$sub-header-font-size: 11px;
+$nav-font-size: 12px;
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(13deg, #7bcfeb 14%, #e685d3 64%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(13deg, #c7ceff 14%, #f9d4ff 64%);
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
+@media (max-width: 866px) and (min-width: 768px) {
+  #header-logo {
+    font-size: $header-font-size !important;
+  }
+
+  #sub-header-logo {
+    font-size: $sub-header-font-size !important;
+  }
+
+  #nav-items,
+  #signup-login {
+    font-size: $nav-font-size !important;
+  }
+}

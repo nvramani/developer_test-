@@ -14,14 +14,6 @@ const HomeSection: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        // Scroll Down: Shrink and fade slightly
-        controls.start({ scale: 0.98, opacity: 0.9 });
-      }
-      //  else {
-      //   // Scroll Up: Expand and become prominent
-      //   controls.start({ scale: 1, opacity: 1 });
-      // }
       setLastScrollY(window.scrollY);
     };
 
@@ -65,7 +57,7 @@ const HomeSection: React.FC = () => {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-5 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          className="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-600"
         >
           {HOME_SECTION_DATA.buttonText}
         </motion.button>
