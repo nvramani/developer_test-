@@ -1,6 +1,7 @@
 import { JSX } from "react";
 
 export interface HomeSectionData {
+  heading:string
   title: string;
   subtitle: string;
   description: string;

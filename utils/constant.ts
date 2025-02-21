@@ -13,6 +13,7 @@ export const NAV_ITEMS = ["Home", "About Us", "Service", "Contact"];
 
 // Home section
 export const HOME_SECTION_DATA: HomeSectionData = {
+  heading:"WEBSITE",
   title: "MODERN WEB DESIGN",
   subtitle: "Create Stunning User Experiences",
   description:

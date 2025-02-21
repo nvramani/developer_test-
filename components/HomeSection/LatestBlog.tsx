@@ -55,7 +55,7 @@ const LatestBlog: React.FC = () => {
       </div>
 
       <motion.div
-        className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         key={currentPage} // Key change triggers reanimation
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -66,17 +66,17 @@ const LatestBlog: React.FC = () => {
           (currentPage + 1) * itemsPerPage
         ).map((blog) => (
           <div key={blog.id} className="">
-            <div className="w-full h-40 bg-gray-300 flex items-center justify-center rounded-lg shadow-md">
+            <div className="w-full h-64 bg-gray-300 flex items-center justify-center rounded-lg shadow-md">
               <img
                 src={blog.imageUrl}
                 alt={blog.title}
-                className="!w-full !h-40 object-cover rounded-lg"
+                className="!w-full !h-64 object-cover rounded-lg"
               />
             </div>
             <div className="my-5 w-full h-8 flex justify-start items-start text-lg font-semibold text-blue-600">
               {blog.title}
             </div>
-            <div className="mt-8">
+            <div className="mt-2">
               <p className="text-gray-500 text-sm">{blog.description}</p>
             </div>
           </div>

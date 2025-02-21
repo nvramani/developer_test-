@@ -56,7 +56,7 @@ const MemberSuccess = () => {
 
       <motion.div
         key={currentPage}
-        className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5, ease: "linear" }}
@@ -73,7 +73,7 @@ const MemberSuccess = () => {
               <img
                 src={story.imageUrl}
                 alt={story.name}
-                className="w-16 h-16 rounded-full object-cover border border-gray-300"
+                className="w-24 h-24 rounded-full object-cover border border-gray-300"
               />
               <div>
                 <h3 className="text-lg font-semibold text-blue-600">
