@@ -40,7 +40,7 @@ const Header = () => {
       initial={{ y: -100, opacity: 0 }} // Animation on page load
       animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="w-full bg-white px-4 md:px-6 lg:px-12"
+      className="container mx-auto px-5 w-full"
     >
       <div className="mx-auto flex justify-between items-center h-[80px] md:h-[90px] lg:h-[100px] transition-all duration-300">
         {/* Left: Logo */}

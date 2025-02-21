@@ -26,11 +26,11 @@ const HomeSection: React.FC = () => {
       animate={controls}
       initial={{ opacity: 0, y: 50 }} // Ensures it starts hidden and moves up
       transition={{ duration: 1, ease: "easeOut" }}
-      className="w-full flex flex-col md:flex-row items-center justify-between gap-8 pt-8 md:pt-24 px-3 md:px-0"
+      className="container-fluid mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-8 pt-8 md:pt-24"
     >
       {/* Left Side */}
       <motion.div
-        className="w-11/12 md:w-3/5 h-full bg-gray-300 p-8 rounded-[50px] md:rounded-r-full md:rounded-l-none border-4 border-gray-300 border-l-0"
+        className="w-11/12 md:w-3/5 h-full bg-gray-300 p-8 rounded-[50px] md:rounded-r-full md:rounded-l-none border-4 border-gray-300 border-l-0 md:!pl-[75px] min-h-[330px]"
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }} // Runs on load
         transition={{ duration: 1, ease: "easeOut" }}
@@ -65,14 +65,14 @@ const HomeSection: React.FC = () => {
 
       {/* Right Side */}
       <motion.div
-        className="w-2/5 h-full bg-gray-300 hidden md:flex items-center justify-center py-8 pl-8 rounded-[50px] md:rounded-l-full md:rounded-r-none border-4 border-blue-500 border-r-0"
+        className="w-2/5 h-full  hidden md:flex items-center justify-center"
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         <motion.img
           src={HOME_SECTION_DATA.imageUrl}
-          className="w-full h-64 object-cover md:rounded-l-full"
+          className="w-full h-64 object-cover md:rounded-l-full bg-gray-300 rounded-[50px] md:rounded-r-none border-4 border-blue-500 border-r-0 min-h-[330px]"
           initial={{ scale: 0.9, rotate: 5 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}

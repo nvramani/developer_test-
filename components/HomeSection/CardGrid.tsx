@@ -30,7 +30,7 @@ const CardGrid: React.FC = () => {
     <motion.section
       initial={{ opacity: 0, y: 50 }} // Section fades in & slides up
       transition={{ duration: 1, ease: "easeOut" }}
-      className="px-4 md:px-6 lg:px-12 pt-12 md:pt-24"
+      className="container mx-auto px-5 pt-12 md:pt-24"
       animate={controls} // Apply scroll animations
     >
       <motion.div

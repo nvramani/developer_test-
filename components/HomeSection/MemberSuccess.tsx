@@ -1,63 +1,29 @@
 "use client";
 import { SUCCESS_STORIES } from "@/utils/constant";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import useItemsPerPage from "@/utils/useItemsPerPage";
 
 const MemberSuccess = () => {
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [lastScrollY, setLastScrollY] = useState(0);
-  const itemsPerPage = 4;
+  const itemsPerPage = useItemsPerPage();
   const totalPages = Math.ceil(SUCCESS_STORIES.length / itemsPerPage);
-
-  // Animation controls
-  const controls = useAnimation();
-
-  useEffect(() => {
-    // Fade-in animation on page load
-    controls.start({ opacity: 1, y: 0, transition: { duration: 0.6 } });
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > lastScrollY) {
-        // Scrolling Down
-        controls.start({ opacity: 0, y: 50, transition: { duration: 0.4 } });
-      }
-      setLastScrollY(scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls, lastScrollY]);
 
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
-      controls
-        .start({ opacity: 0, y: 50, transition: { duration: 0.3 } })
-        .then(() => {
-          setCurrentPage((prev) => prev + 1);
-          controls.start({ opacity: 1, y: 0, transition: { duration: 0.3 } });
-        });
+      setCurrentPage((prev) => prev + 1);
     }
   };
 
   const prevPage = () => {
     if (currentPage > 0) {
-      controls
-        .start({ opacity: 0, y: -50, transition: { duration: 0.3 } })
-        .then(() => {
-          setCurrentPage((prev) => prev - 1);
-          controls.start({ opacity: 1, y: 0, transition: { duration: 0.3 } });
-        });
+      setCurrentPage((prev) => prev - 1);
     }
   };
 
   return (
-    <motion.div
-      className="px-4 md:px-6 lg:px-12 py-8 md:py-24"
-      initial={{ opacity: 0, y: 20 }}
-      animate={controls}
-    >
+    <div className="container mx-auto px-5 py-8 md:py-24">
       <div className="flex items-center justify-between">
         <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-blue-600">
           MEMBER SUCCESS STORIES
@@ -90,22 +56,18 @@ const MemberSuccess = () => {
 
       <motion.div
         key={currentPage}
-        className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -30 }}
-        transition={{ duration: 0.4 }}
+        className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, ease: "linear" }}
       >
         {SUCCESS_STORIES.slice(
           currentPage * itemsPerPage,
           (currentPage + 1) * itemsPerPage
         ).map((story) => (
-          <motion.div
+          <div
             key={story.id}
             className="border-2 border-blue-600 p-4 rounded-lg shadow-md"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.3 }}
           >
             <div className="flex items-center justify-start space-x-4">
               <img
@@ -124,10 +86,10 @@ const MemberSuccess = () => {
             <div className="space-y-2 mt-6">
               <p className="text-gray-500 text-sm">{story.description}</p>
             </div>
-          </motion.div>
+          </div>
         ))}
       </motion.div>
-    </motion.div>
+    </div>
   );
 };
 

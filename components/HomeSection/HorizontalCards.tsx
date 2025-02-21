@@ -28,7 +28,7 @@ const HorizontalCards: React.FC = () => {
 
   return (
     <motion.section
-      className="px-4 md:px-6 lg:px-12 pt-8 md:pt-24"
+      className="container mx-auto px-5 pt-8 md:pt-24"
       animate={controls}
     >
       <div className="bg-gray-300 p-6 rounded-md">

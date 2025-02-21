@@ -17,8 +17,8 @@ const SOCIAL_ICONS = [
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-300 text-white py-12 px-10 md:px-20">
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-10">
+    <footer className="mx-auto w-full bg-gray-300 text-white py-12  bottom-0">
+      <div className="container mx-auto px-5 flex flex-wrap justify-between items-center gap-10">
         {/* Footer Content Columns */}
         {FOOTER_COLUMNS.map((column, index) => (
           <div key={index}>
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
         ))}
 
         {/* Newsletter & Social Media */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center md:items-start w-full md:w-auto">
           <h3 className="text-lg font-semibold text-blue-600">Stay Updated</h3>
           <p className="text-gray-600 text-sm">
             Subscribe to our newsletter for the latest updates and offers.

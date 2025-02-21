@@ -30,7 +30,7 @@ const Wireframe: React.FC = () => {
       animate={controls}
       initial={{ opacity: 0, y: 50 }} // Ensures fade-in from below
       transition={{ duration: 1, ease: "easeOut" }}
-      className="px-4 md:px-6 lg:px-12 flex flex-col lg:flex-row justify-between items-center gap-20 pt-8 md:pt-24"
+      className="container mx-auto px-5 flex flex-col lg:flex-row justify-center items-center gap-20 pt-8 md:pt-24"
     >
       {/* Image Section */}
       <motion.div
