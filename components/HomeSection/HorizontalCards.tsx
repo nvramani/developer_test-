@@ -1,26 +1,82 @@
 "use client";
 import { HORIZONTAL_CARDS_DATA } from "@/utils/constant";
-import React from "react";
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect } from "react";
 
 const HorizontalCards: React.FC = () => {
+  const controls = useAnimation();
+  let lastScrollY = 0;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY) {
+        // Scrolling Down
+        controls.start({
+          y: -20,
+          opacity: 1,
+          transition: { duration: 0.3, ease: "easeOut" },
+        });
+      } else {
+        // Scrolling Up
+        controls.start({
+          y: 20,
+          opacity: 1,
+          transition: { duration: 0.3, ease: "easeOut" },
+        });
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [controls]);
+
   return (
-    <section className="flex items-center justify-center bg-white px-5 py-20">
+    <motion.section
+      className="px-4 md:px-6 lg:px-12 pt-8 md:pt-24"
+      animate={controls}
+    >
       <div className="bg-gray-300 p-6 rounded-md">
         <div className="flex flex-wrap justify-center md:justify-start">
           {HORIZONTAL_CARDS_DATA.map((item, index, arr) => (
-            <div
+            <motion.div
               key={item.id}
               className="flex flex-col md:flex-row items-center h-full relative"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
             >
               <div className="w-64 p-4 flex-shrink-0 text-center md:text-left">
-                <h3 className="text-lg font-bold text-blue-600">
+                <motion.h3
+                  className="text-lg font-bold text-blue-600"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
                   {item.title}
-                </h3>
-                <p className="text-gray-700 text-sm mt-2">{item.description}</p>
+                </motion.h3>
+                <motion.p
+                  className="text-gray-700 text-sm mt-2"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 }}
+                >
+                  {item.description}
+                </motion.p>
               </div>
 
               {index < arr.length - 1 && (
-                <div className="relative flex justify-center items-center md:mx-4 sm:my-4">
+                <motion.div
+                  className="relative flex justify-center items-center md:mx-4 sm:my-4"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                >
                   <div className="hidden md:block relative w-1 h-20">
                     <div className="absolute left-1/2 top-0 h-full w-0.5 bg-blue-500"></div>
                     <div className="absolute left-1/2 top-1/2 h-6 w-0.5 bg-black"></div>
@@ -30,13 +86,13 @@ const HorizontalCards: React.FC = () => {
                     <div className="absolute top-1/2 left-0 w-full h-0.5 bg-blue-500"></div>
                     <div className="absolute top-1/2 left-1/2 w-6 h-0.5 bg-black"></div>
                   </div>
-                </div>
+                </motion.div>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
