@@ -22,10 +22,11 @@ const MemberSuccess = () => {
       if (scrollY > lastScrollY) {
         // Scrolling Down
         controls.start({ opacity: 0, y: 50, transition: { duration: 0.4 } });
-      } else {
-        // Scrolling Up
-        controls.start({ opacity: 1, y: -50, transition: { duration: 0.4 } });
       }
+      // else {
+      //   // Scrolling Up
+      //   controls.start({ opacity: 1, y: -50, transition: { duration: 0.4 } });
+      // }
       setLastScrollY(scrollY);
     };
 
@@ -35,19 +36,23 @@ const MemberSuccess = () => {
 
   const nextPage = () => {
     if (currentPage < totalPages - 1) {
-      controls.start({ opacity: 0, y: 50, transition: { duration: 0.3 } }).then(() => {
-        setCurrentPage((prev) => prev + 1);
-        controls.start({ opacity: 1, y: 0, transition: { duration: 0.3 } });
-      });
+      controls
+        .start({ opacity: 0, y: 50, transition: { duration: 0.3 } })
+        .then(() => {
+          setCurrentPage((prev) => prev + 1);
+          controls.start({ opacity: 1, y: 0, transition: { duration: 0.3 } });
+        });
     }
   };
 
   const prevPage = () => {
     if (currentPage > 0) {
-      controls.start({ opacity: 0, y: -50, transition: { duration: 0.3 } }).then(() => {
-        setCurrentPage((prev) => prev - 1);
-        controls.start({ opacity: 1, y: 0, transition: { duration: 0.3 } });
-      });
+      controls
+        .start({ opacity: 0, y: -50, transition: { duration: 0.3 } })
+        .then(() => {
+          setCurrentPage((prev) => prev - 1);
+          controls.start({ opacity: 1, y: 0, transition: { duration: 0.3 } });
+        });
     }
   };
 

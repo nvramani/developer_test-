@@ -18,14 +18,15 @@ const HorizontalCards: React.FC = () => {
           opacity: 1,
           transition: { duration: 0.3, ease: "easeOut" },
         });
-      } else {
-        // Scrolling Up
-        controls.start({
-          y: 20,
-          opacity: 1,
-          transition: { duration: 0.3, ease: "easeOut" },
-        });
       }
+      //  else {
+      //   // Scrolling Up
+      //   controls.start({
+      //     y: 20,
+      //     opacity: 1,
+      //     transition: { duration: 0.3, ease: "easeOut" },
+      //   });
+      // }
 
       lastScrollY = currentScrollY;
     };

@@ -17,10 +17,11 @@ const HomeSection: React.FC = () => {
       if (window.scrollY > lastScrollY) {
         // Scroll Down: Shrink and fade slightly
         controls.start({ scale: 0.98, opacity: 0.9 });
-      } else {
-        // Scroll Up: Expand and become prominent
-        controls.start({ scale: 1, opacity: 1 });
       }
+      //  else {
+      //   // Scroll Up: Expand and become prominent
+      //   controls.start({ scale: 1, opacity: 1 });
+      // }
       setLastScrollY(window.scrollY);
     };
 

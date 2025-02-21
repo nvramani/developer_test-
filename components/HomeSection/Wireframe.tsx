@@ -18,10 +18,11 @@ const Wireframe: React.FC = () => {
       if (window.scrollY > lastScrollY) {
         // Scrolling Down → Shrink slightly
         controls.start({ scale: 0.98, opacity: 0.9 });
-      } else {
-        // Scrolling Up → Expand and be more visible
-        controls.start({ scale: 1, opacity: 1 });
-      }
+      } 
+      // else {
+      //   // Scrolling Up → Expand and be more visible
+      //   controls.start({ scale: 1, opacity: 1 });
+      // }
       setLastScrollY(window.scrollY);
     };
 
